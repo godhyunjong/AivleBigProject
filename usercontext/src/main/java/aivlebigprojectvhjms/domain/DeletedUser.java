@@ -15,7 +15,7 @@ public class DeletedUser extends AbstractEvent {
     private String loginId;
     private String loginPassword;
     private String name;
-    private Email email;
+    // private Email email;
     private String role;
 
     public DeletedUser(User aggregate) {

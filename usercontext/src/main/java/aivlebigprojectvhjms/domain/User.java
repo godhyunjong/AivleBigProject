@@ -29,7 +29,7 @@ public class User {
     private String name;
 
     @Embedded
-    private Email email;
+    // private Email email;
 
     private String role;
 
