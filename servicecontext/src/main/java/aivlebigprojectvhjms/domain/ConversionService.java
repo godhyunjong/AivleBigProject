@@ -19,7 +19,6 @@ public class ConversionService {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long serviceId;
-
     private String serviceName;
 
     private String imageUrl;
@@ -31,6 +30,18 @@ public class ConversionService {
             ConversionServiceRepository.class
         );
         return conversionServiceRepository;
+    }
+
+    public static Long findServiceIdByName(String name) {
+    return repository().findByServiceName(name)
+        .map(ConversionService::getServiceId)
+        .orElseThrow(() -> new RuntimeException("해당 서비스명을 찾을 수 없습니다: " + name));
+    }   
+
+    public static String findImageUrlByName(String name) {
+        return repository().findByServiceName(name)
+            .map(ConversionService::getImageUrl)
+            .orElseThrow(() -> new RuntimeException("해당 서비스명을 찾을 수 없습니다: " + name));
     }
 }
 //>>> DDD / Aggregate Root

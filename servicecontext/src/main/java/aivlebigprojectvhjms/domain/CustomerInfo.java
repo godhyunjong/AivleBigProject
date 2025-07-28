@@ -13,14 +13,13 @@ import java.time.LocalDate;
 @Data
 public class CustomerInfo {
 
-        @Id
-        //@GeneratedValue(strategy=GenerationType.AUTO)
-        private Long id;
-        private Integer age;
-        private List&lt;String&gt; disease;
-        private Boolean hasChildern;
-        private String gender;
-        private Boolean isMarriage;
+    @Id
+    private Long id;
+    private Integer age;
 
-
+    @ElementCollection
+    private List<String> disease;
+    private Boolean hasChildren;
+    private String gender;
+    private Boolean isMarriage;
 }
