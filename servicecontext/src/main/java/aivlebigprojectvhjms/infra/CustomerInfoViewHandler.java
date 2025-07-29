@@ -23,14 +23,12 @@ public class CustomerInfoViewHandler {
     ) {
         try {
             if (!customerRegistered.validate()) return;
-
+            System.out.println("📩 [ServiceContext] 이벤트 수신: userId = " + customerRegistered.getUserId());
             // view 객체 생성
             CustomerInfo customerInfo = new CustomerInfo();
             // view 객체에 이벤트의 Value 를 set 함
             customerInfo.setAge(customerRegistered.getAge());
-            customerInfo.setDisease(
-                String.valueOf(customerRegistered.getDiseaseList())
-            );
+            customerInfo.setDisease(customerRegistered.getDiseaseList());
             customerInfo.setHasChildern(customerRegistered.getHasChildren());
             customerInfo.setGender(
                 String.valueOf(customerRegistered.getGender())
